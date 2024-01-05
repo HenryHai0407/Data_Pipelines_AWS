@@ -25,6 +25,8 @@ On the Airflow web server UI, use `airflow` for both username and password.
 * Don't forget to start your Redshift cluster via the AWS console.
 * After completing these steps, run your DAG to ensure all tasks are successfully executed.
 
+![imgs_Connections](image/Airflow_Connections.PNG)
+
 ## Getting Started with the Project
 1. The project template package comprises three key components:
    * The **DAG template** includes imports and task templates but lacks task dependencies.
