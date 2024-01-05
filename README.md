@@ -57,26 +57,29 @@ Utilize the provided SQL helper class for data transformations. These operators 
 ### Data Quality Operator
 Create the data quality operator to run checks on the data using SQL-based test cases and expected results. The operator should raise an exception and initiate task retry and eventual failure if test results don't match expectations.
 
-## Reviewing Starter Code
-Before diving into development, familiarize yourself with the following files:
-- [plugins/operators/data_quality.py](plugins/operators/data_quality.py)
-- [plugins/operators/load_fact.py](plugins/operators/load_fact.py)
-- [plugins/operators/load_dimension.py](plugins/operators/load_dimension.py)
-- [plugins/operators/stage_redshift.py](plugins/operators/stage_redshift.py)
-- [plugins/helpers/sql_queries.py](plugins/helpers/sql_queries.py)
-- [dags/final_project.py](dags/final_project.py)
-
+## Project Backbones:
 
 -[Initial Plugins for Airflow](airflow/plugins/__init__.py)
+
 -[Define Columns and Create Tables](airflow/dags/create_tables_queries.py)
+
 -[The whole ETL process](airflow/dags/etl.py)
+
 -[Intitialize SQL_Queries file](airflow/plugins/helpers/__init__.py)
+
 -[SQL_Queries file](airflow/plugins/helpers/sql_queries.py)
+
 -[Initialize all Operators](airflow/plugins/operators/__init__.py)
+
 -[Create Tables for Operators](airflow/plugins/operators/create_tables.py)
+
 -[Check Data Quality](airflow/plugins/operators/data_quality.py)
+
 -[Load Dimension Tables](airflow/plugins/operators/load_dimension.py)
+
 -[Load Fact Tables](airflow/plugins/operators/load_fact.py)
+
 -[Stage All Tables to RedShift Data Warehouse](airflow/plugins/operators/stage_redshift.py)
+
 
 Now you're ready to embark on this exciting journey into the world of Data Pipelines with Airflow!
