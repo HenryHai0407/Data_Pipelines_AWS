@@ -34,6 +34,10 @@ On the Airflow web server UI, use `airflow` for both username and password.
 ![Project DAG in the Airflow UI](assets/final_project_dag_graph1.png)
 You should be able to execute the DAG successfully, but if you check the logs, you will see only `operator not implemented` messages.
 
+# Data source
+*  Song data: s3://udacity-dend/song_data
+*  Log data: s3://udacity-dend/log_data
+  
 ## DAG Configuration
 In the DAG, add `default parameters` based on these guidelines:
 * No dependencies on past runs.
@@ -99,7 +103,7 @@ The operator is designed to be parametrized: It uses params to obtain the tests 
 
 -[Define Columns and Create Tables](airflow/dags/create_tables_queries.py)
 
--[The whole ETL process](airflow/dags/etl.py)
+-[The whole ETL process: Tasks and Task Dependencies](airflow/dags/etl.py)
 
 -[Intitialize SQL_Queries file](airflow/plugins/helpers/__init__.py)
 
