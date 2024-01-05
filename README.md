@@ -15,7 +15,7 @@ To bring up the entire app stack up, we use [docker-compose](https://docs.docker
 docker-compose up -d
 ```
 Visit http://localhost:8080 once all containers are up and running.
-(image/Airflow_frontpage.PNG)
+!(image/Airflow_frontpage.PNG)
 
 ## Configuring Connections in the Airflow Web Server UI
 ![Airflow Web Server UI. Credentials: `airflow`/`airflow`.](assets/login.png)
