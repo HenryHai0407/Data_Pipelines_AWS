@@ -15,10 +15,10 @@ To bring up the entire app stack up, we use [docker-compose](https://docs.docker
 docker-compose up -d
 ```
 Visit http://localhost:8080 once all containers are up and running.
-![imgs](image/Airflow_frontpage.PNG)
+
 
 ## Configuring Connections in the Airflow Web Server UI
-![Airflow Web Server UI. Credentials: `airflow`/`airflow`.](assets/login.png)
+![imgs](image/Airflow_frontpage.PNG)
 
 On the Airflow web server UI, use `airflow` for both username and password.
 * Post-login, navigate to **Admin > Connections** to add required connections - specifically, `aws_credentials` and `redshift`.
@@ -50,7 +50,7 @@ In the DAG, add `default parameters` based on these guidelines:
 * No email on retry.
 
 Additionally, configure task dependencies to match the flow depicted in the image below:
-![Working DAG with correct task dependencies](assets/final_project_dag_graph2.png)
+![Working DAG with correct task dependencies](image/Task_Dependencies.PNG)
 
 ## Operators
 Operators create necessary tables, stage the data, transform the data, and run checks on data quality.
