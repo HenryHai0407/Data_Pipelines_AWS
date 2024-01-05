@@ -37,6 +37,7 @@ On the Airflow web server UI, use `airflow` for both username and password.
    * The **DAG template** (dag) includes imports and task templates but lacks task dependencies.
    * The **operators** (operators) folder with operator templates.
    * The **helper class** (helpers) for SQL transformations.
+   * The **docker-compose.yaml** defines and configures a set of Docker containers that work together to create a production environment for Airflow.
   
 ![Airflow_folders_in_VSC](image/airflow_env_folders.PNG)
 
