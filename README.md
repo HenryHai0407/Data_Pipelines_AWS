@@ -35,8 +35,8 @@ On the Airflow web server UI, use `airflow` for both username and password.
 You should be able to execute the DAG successfully, but if you check the logs, you will see only `operator not implemented` messages.
 
 # Data source
-*  Song data: 's3://udacity-dend/song_data'
-*  Log data: 's3://udacity-dend/log_data'
+*  Song data: `s3://udacity-dend/song_data`
+*  Log data: `s3://udacity-dend/log_data`
   
 ## DAG Configuration
 In the DAG, add `default parameters` based on these guidelines:
