@@ -6,6 +6,11 @@ To begin, we've equipped you with a project template that streamlines imports an
 
 A helper class containing all necessary SQL transformations is at your disposal. While you won't have to write the ETL processes, your responsibility lies in executing them using your custom operators.
 
+## Running Airflow environment on Ubuntu with Docker by Visual Studio Code
+Following the instruction from the main page of Apache Airflow: `https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html`. The below screenshot demonstrates how Airflow runs on the WSL environment:
+
+![imageofVSC](image/Capture1.PNG)
+
 ## Initiating the Airflow Web Server
 Ensure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is installed before proceeding.
 
