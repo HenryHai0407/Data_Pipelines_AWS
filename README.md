@@ -45,17 +45,53 @@ In the DAG, add `default parameters` based on these guidelines:
 Additionally, configure task dependencies to match the flow depicted in the image below:
 ![Working DAG with correct task dependencies](assets/final_project_dag_graph2.png)
 
-## Developing Operators
-To complete the project, build four operators for staging data, transforming data, and performing data quality checks. While you can reuse code from Project 2, leverage Airflow's built-in functionalities like connections and hooks whenever possible to let Airflow handle the heavy lifting.
+## Operators
+Operators create necessary tables, stage the data, transform the data, and run checks on data quality.
 
-### Stage Operator
-Load any JSON-formatted files from S3 to Amazon Redshift using the stage operator. The operator should create and run a SQL COPY statement based on provided parameters, distinguishing between JSON files. It should also support loading timestamped files from S3 based on execution time for backfills.
+Connections and Hooks are configured using Airflow's built-in functionalities.
+
+All of the operators and task run SQL statements against the Redshift database.
+
+
+### Stage Operators
+
+The stage operator uploads files in JSON and CSV formats from S3 to Amazon Redshift. This operator initiates and executes a SQL COPY statement based on the provided parameters, specifying the S3 location of the file to be loaded and the target table.
+
+In the DAG, there's a task responsible for staging CSV and JSON data using the RedshiftStage operator. This task facilitates the movement of data from S3 to Redshift by executing a Redshift copy statement.
+
+The task is parameterized: Instead of employing a static SQL statement for staging, the task dynamically generates the copy statement using parameters. It incorporates a templated field, enabling it to load timestamped files from S3 based on the execution time and perform backfills.
+
+Logging is integrated: The operator includes logging mechanisms at various stages of the execution process.
+
+Establishing the database connection involves utilizing a hook and a connection: SQL statements are executed through an Airflow hook.
 
 ### Fact and Dimension Operators
-Utilize the provided SQL helper class for data transformations. These operators take a SQL statement, target database, and optional target table as input. For dimension loads, implement the truncate-insert pattern, allowing for switching between insert modes. Fact tables should support append-only functionality.
+
+The dimension and fact operators leverage the SQL helper class for executing data transformations. These operators take the SQL statement from the helper class as input and specify the target database on which to execute the query. Additionally, a target table is defined to store the outcomes of the transformation.
+
+Dimension loads follow the truncate-insert pattern, where the target table is cleared before the load. There is a parameter that enables the switch between insert modes during dimension loading. Since fact tables are extensive, they only support append-type functionality.
+
+The DAG incorporates a set of tasks utilizing the LoadDimension operator for dimension loading, adhering to the truncate-insert pattern.
+
+Similarly, a task employing the LoadFact operator is included in the DAG for loading facts.
+
+Both operators utilize params: Instead of employing a static SQL statement for staging the data, the task dynamically generates the copy statement using parameters.
+
+The dimension task incorporates a param to facilitate the switch between append and insert-delete functionality: The DAG provides the flexibility to toggle between append-only and delete-load functionality.
 
 ### Data Quality Operator
-Create the data quality operator to run checks on the data using SQL-based test cases and expected results. The operator should raise an exception and initiate task retry and eventual failure if test results don't match expectations.
+
+The data quality operator serves the purpose of executing checks on the data itself. Its primary function involves receiving one or more SQL-based test cases along with their expected results and executing these tests. For each test, the operator compares the test result with the expected result, and if there is a mismatch, the operator raises an exception. Subsequently, the task is retried, ultimately failing if the issue persists.
+
+As an illustration, a test could involve a SQL statement checking if a specific column contains NULL values by counting all the rows with NULL in that column. Since the aim is to have no NULLs, the expected result would be 0, and the test compares the SQL statement's outcome to this expected result.
+
+The DAG features a task utilizing the data quality operator, ensuring at least one data quality check is performed. This check is conducted using the appropriate operator.
+
+The operator triggers an error if the check fails, leading to either DAG failure or a specified number of retries.
+
+The operator is designed to be parametrized: It uses params to obtain the tests and their expected results, eliminating the need to hard code tests into the operator.
+
+
 
 ## Project Backbones:
 
@@ -82,4 +118,3 @@ Create the data quality operator to run checks on the data using SQL-based test 
 -[Stage All Tables to RedShift Data Warehouse](airflow/plugins/operators/stage_redshift.py)
 
 
-Now you're ready to embark on this exciting journey into the world of Data Pipelines with Airflow!
