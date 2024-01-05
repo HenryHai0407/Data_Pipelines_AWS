@@ -66,4 +66,7 @@ Before diving into development, familiarize yourself with the following files:
 - [plugins/helpers/sql_queries.py](plugins/helpers/sql_queries.py)
 - [dags/final_project.py](dags/final_project.py)
 
+
+-[plugins/helpers/__init__.py](initial file)
+
 Now you're ready to embark on this exciting journey into the world of Data Pipelines with Airflow!
