@@ -115,10 +115,10 @@ The operator is designed to be parametrized: It uses params to obtain the tests 
 
 -[Check Data Quality](airflow/plugins/operators/data_quality.py)
 
--[Load Dimension Tables](airflow/plugins/operators/load_dimension.py)
+-[Load Data from Staging Tables to Dimension Tables](airflow/plugins/operators/load_dimension.py)
 
--[Load Fact Tables](airflow/plugins/operators/load_fact.py)
+-[Load Data from Staging Tables Fact Tables](airflow/plugins/operators/load_fact.py)
 
--[Stage All Tables to RedShift Data Warehouse](airflow/plugins/operators/stage_redshift.py)
+-[Stage All Tables from S3 bucket to RedShift Data Warehouse (Staging Tables)](airflow/plugins/operators/stage_redshift.py)
 
 
