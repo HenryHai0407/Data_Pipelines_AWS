@@ -106,6 +106,13 @@ The operator triggers an error if the check fails, leading to either DAG failure
 
 The operator is designed to be parametrized: It uses params to obtain the tests and their expected results, eliminating the need to hard code tests into the operator.
 
+### Setup AWS resources
+
+* Create IAM user and set for it permissions included in AWS
+* Create security groups for Redshift and EC2
+* Copy data from S3 original sources to s3 specified bucket: Using CloudShell in AWS
+* Create Redshift serverless (Remember to modify publicly accessible setting)
+  
 
 
 ## Project Backbones:
