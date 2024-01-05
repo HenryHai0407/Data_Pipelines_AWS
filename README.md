@@ -37,6 +37,8 @@ On the Airflow web server UI, use `airflow` for both username and password.
    * The **DAG template** includes imports and task templates but lacks task dependencies.
    * The **operators** folder with operator templates.
    * A **helper class** for SQL transformations.
+  
+![Airflow_folders_in_VSC](image/airflow_env_folders.PNG)
 
 1. With these template files, you should see the new DAG in the Airflow UI, with a graph view resembling the screenshot below:
 ![Project DAG in the Airflow UI](image/Airflor_DAGs_UI.PNG)
