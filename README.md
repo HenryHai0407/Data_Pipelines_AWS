@@ -32,7 +32,7 @@ On the Airflow web server UI, use `airflow` for both username and password.
    * A **helper class** for SQL transformations.
 
 1. With these template files, you should see the new DAG in the Airflow UI, with a graph view resembling the screenshot below:
-![Project DAG in the Airflow UI](assets/final_project_dag_graph1.png)
+![Project DAG in the Airflow UI](image/Airflor_DAGs_UI.PNG)
 You should be able to execute the DAG successfully, but if you check the logs, you will see only `operator not implemented` messages.
 
 # Data source
