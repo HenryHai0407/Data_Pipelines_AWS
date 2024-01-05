@@ -67,6 +67,6 @@ Before diving into development, familiarize yourself with the following files:
 - [dags/final_project.py](dags/final_project.py)
 
 
--[plugins/helpers/__init__.py](initial file)
+-[plugins/helpers/__init__.py](plugins/helpers/__init__.py)
 
 Now you're ready to embark on this exciting journey into the world of Data Pipelines with Airflow!
